@@ -28,6 +28,26 @@ def add_empty_columns(file_path, features):
     except Exception as e:
         print(f"Error processing {file_path}: {str(e)}")
         return None
+def main():
+    dir_path = "datasets"
+    directory_path = "manual_annotations"
 
+    if not os.path.exists(directory_path):
+        os.makedirs(directory_path)
+
+    for filename in os.listdir(dir_path):
+        file_path = os.path.join(dir_path, filename)
+        new_file_path = os.path.join(directory_path, filename)
+
+        modified_df = add_empty_columns(file_path, features)
+
+        if modified_df is not None:
+            if filename.endswith(".csv"):
+                modified_df.to_csv(new_file_path, index=False)
+            elif filename.endswith(".xlsx"):
+                modified_df.to_excel(new_file_path, index=False)
+
+if __name__ == "__main__":
+    main()
 
         
