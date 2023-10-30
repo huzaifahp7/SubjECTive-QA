@@ -1,36 +1,33 @@
 import os
 import pandas as pd
+import chardet
 
 # List of features
 features = ["Clear", "Assertive", "Cautious", "Optimistic", "Specific", "Relevant"]
 
-dir_path1 = "datasets"
+def detect_encoding(file_path):
+    with open(file_path, 'rb') as f:
+        result = chardet.detect(f.read())
+    return result['encoding']
 
-directory_path = "manual_annotations"
+def add_empty_columns(file_path, features):
+    try:
+        encoding = detect_encoding(file_path)
+        if file_path.endswith(".csv"):
+            df = pd.read_csv(file_path, encoding=encoding)
+        elif file_path.endswith(".xlsx"):
+            df = pd.read_excel(file_path, engine='openpyxl')
+        else:
+            print(f"Unsupported file format for {file_path}")
+            return
 
-# Iterate through transcript files and add empty columns
-for filename in os.listdir(dir_path1):
-    if filename.endswith(".csv"):  # Assuming the transcripts are in CSV format
-        file_path = os.path.join(dir_path1, filename)
-        df = pd.read_csv(file_path)
-
-        # Add empty columns for each feature
         for feature in features:
             df[feature] = None
 
-        # Save the modified DataFrame back to the file
-        file_new = os.path.join(directory_path, filename)
-        df.to_csv(file_new, index=False)
-        
-    if filename.endswith(".xlsx"):
-        file_path = os.path.join(dir_path1, filename)
-        df = pd.read_excel(file_path)
+        return df
+    except Exception as e:
+        print(f"Error processing {file_path}: {str(e)}")
+        return None
 
-        # Add empty columns for each feature
-        for feature in features:
-            df[feature] = None
 
-        # Save the modified DataFrame back to the file
-        file_new = os.path.join(directory_path, filename)
-        df.to_excel(file_new, index=False)
         
