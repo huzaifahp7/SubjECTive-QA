@@ -29,7 +29,7 @@ def add_empty_columns(file_path, features):
         print(f"Error processing {file_path}: {str(e)}")
         return None
 def main():
-    dir_path = "datasets"
+    dir_path = "/Users/hp/Desktop/SubjECTive-QA/datasets"
     directory_path = "manual_annotations"
 
     if not os.path.exists(directory_path):
