@@ -2,8 +2,8 @@ import os
 import shutil
 
 # Set the paths for source directories and the destination directory
-source_directories = ['/path/to/dir1', '/path/to/dir2', '/path/to/dir3', '/path/to/dir4', '/path/to/dir5', '/path/to/dir6', '/path/to/dir7', '/path/to/dir8', '/path/to/dir9']
-destination_directory = '/path/to/destination'
+source_directories = ['/Users/hp/Desktop/SubjECTive-QA/Abhishek-annotations', '/Users/hp/Desktop/SubjECTive-QA/Rohan-annotations', '/Users/hp/Desktop/SubjECTive-QA/Andrew-annotations', '/Users/hp/Desktop/SubjECTive-QA/Veer-annotations', '/Users/hp/Desktop/SubjECTive-QA/Siddhant-annotations', '/Users/hp/Desktop/SubjECTive-QA/Huzaifa-annotations', '/Users/hp/Desktop/SubjECTive-QA/Dhruv-annotations', '/Users/hp/Desktop/SubjECTive-QA/Tarun-annotations', '/Users/hp/Desktop/SubjECTive-QA/Chandrashekaran-annotations']
+destination_directory = '/Users/hp/Desktop/SubjECTive-QA/all_annotated'
 
 # Initialize a counter for file names
 counter = 0

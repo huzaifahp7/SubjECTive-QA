@@ -1,7 +1,7 @@
 import os
 count1 = 0
 count2 = 0
-dir1 = "/Users/hp/Desktop/SubjECTive-QA/datasets"
+dir1 = "/Users/hp/Desktop/SubjECTive-QA/all_annotated"
 dir2 = "/Users/hp/Desktop/SubjECTive-QA/manual_annotations"
 
 for file in os.listdir(dir1):
