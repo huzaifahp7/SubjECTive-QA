@@ -3,7 +3,7 @@ import pandas as pd
 count1 = 0
 count2 = 0
 dir1 = "/Users/hp/Desktop/SubjECTive-QA/all_annotated"
-dir2 = "/Users/hp/Desktop/SubjECTive-QA/manual_annotations"
+dir2 = "/Users/hp/Desktop/SubjECTive-QA/individual_datasets"
 
 file = "/Users/hp/Desktop/SubjECTive-QA/final_dataset.csv"
 df = pd.read_csv(file)
