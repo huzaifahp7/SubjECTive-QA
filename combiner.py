@@ -33,10 +33,10 @@ combined_df = pd.concat(combined_dataframes, ignore_index=True)
 mode_df = combined_df.groupby(['QUESTION', 'ANSWER'])[attribute_columns].apply(lambda x: x.mode().iloc[0] if not x.mode().empty else '1').reset_index()
 
 # Step 3: Merge the mode results with the original DataFrame to get other details
-result_df = pd.merge(mode_df, combined_df[['QUESTION', 'ANSWER', 'COMPANYNAME', 'QUARTER', 'YEAR']], on=['QUESTION', 'ANSWER'])
+result_df = pd.merge(mode_df, combined_df[['ASKER', 'RESPONDER', 'QUESTION', 'ANSWER', 'COMPANYNAME', 'QUARTER', 'YEAR']], on=['QUESTION', 'ANSWER'])
 
 # Reordering columns
-col_order = ['COMPANYNAME', 'QUARTER', 'YEAR', 'QUESTION', 'ANSWER'] + attribute_columns
+col_order = ['COMPANYNAME', 'QUARTER', 'YEAR', 'ASKER', 'RESPONDER','QUESTION', 'ANSWER'] + attribute_columns
 result_df = result_df[col_order]
 
 # Step 4: Drop duplicate rows to retain only one row for each unique 'QUESTION' and 'ANSWER' pair

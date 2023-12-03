@@ -9,7 +9,8 @@ import numpy as np
 # Load your existing dataset
 # final_dataset = pd.read_csv('your_dataset.csv')  # Replace 'your_dataset.csv' with the actual file name or path
 
-
+st.markdown("# Page 2 : Time-Series ")
+st.sidebar.markdown("# Page 2 ")
 
 final_dataset = pd.read_excel('final_dataset.xlsx')
 
